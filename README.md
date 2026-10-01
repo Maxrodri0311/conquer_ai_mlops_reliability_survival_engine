@@ -12,14 +12,14 @@ DIP Architecture: StorageAdapterProtocol & ModelRegistryProtocol abstracted via 
 
 ### Dynamic Model Retraining Orchestration via Cox Proportional Hazards & Parametric Weibull Degradation
 
-[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![DuckDB](https://img.shields.io/badge/DuckDB-Vectorized%20OLAP-FFF000?style=for-the-badge&logo=duckdb&logoColor=black)](https://duckdb.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Windowed%20Analytics-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![Terraform](https://img.shields.io/badge/Terraform-IaC%20AWS%20S3%2FECR-844FBA?style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
-[![Kubeflow](https://img.shields.io/badge/Kubeflow-Pipeline%20Triggers-007D9C?style=for-the-badge&logo=kubernetes&logoColor=white)](https://www.kubeflow.org/)
-[![MLflow](https://img.shields.io/badge/MLflow-Model%20Registry-0194E2?style=for-the-badge&logo=mlflow&logoColor=white)](https://mlflow.org/)
-[![CI](https://img.shields.io/badge/CI-GitHub%20Actions%20Passed-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/Maxrodri0311/conquer_ai_mlops_reliability_survival_engine/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/static/v1?label=Python&message=3.11%2B&color=3776AB&style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![DuckDB](https://img.shields.io/static/v1?label=DuckDB&message=Vectorized%20OLAP&color=FFF000&style=for-the-badge&logo=duckdb&logoColor=black)](https://duckdb.org/)
+[![PostgreSQL](https://img.shields.io/static/v1?label=PostgreSQL&message=Windowed%20Analytics&color=4169E1&style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Terraform](https://img.shields.io/static/v1?label=Terraform&message=AWS%20S3%20ECR&color=844FBA&style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
+[![Kubeflow](https://img.shields.io/static/v1?label=Kubeflow&message=Pipeline%20Triggers&color=007D9C&style=for-the-badge&logo=kubernetes&logoColor=white)](https://www.kubeflow.org/)
+[![MLflow](https://img.shields.io/static/v1?label=MLflow&message=Model%20Registry&color=0194E2&style=for-the-badge&logo=mlflow&logoColor=white)](https://mlflow.org/)
+[![CI](https://img.shields.io/static/v1?label=CI&message=GitHub%20Actions%20Passed&color=2088FF&style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/Maxrodri0311/conquer_ai_mlops_reliability_survival_engine/actions)
+[![License: MIT](https://img.shields.io/static/v1?label=License&message=MIT&color=yellow&style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 **[⚡ Quickstart Demo (1-Click)](#-1-click-verification--benchmarks)** &nbsp;•&nbsp;
 **[📐 Mathematical Core](#-mathematical--algorithmic-formulation)** &nbsp;•&nbsp;
@@ -115,11 +115,15 @@ flowchart TD
 
 ```
 conquer_ai_mlops_reliability_survival_engine/
+├── .gitattributes                 # Linguist configuration (hides .bat, forces SQL & HCL detection)
 ├── .github/
 │   └── workflows/
 │       └── ci.yml                     # Automated multi-OS GitHub Actions CI
 ├── analytics/
 │   └── queries/
+│       ├── 00_schema_ddl_postgresql.sql       # Time-series range partitioning (monthly) & BRIN/B-tree indexing
+│       ├── 03_continuous_drift_rollup_matview.sql # Materialized view with LAG velocity, moving Z-scores & deciles
+│       ├── 04_kubeflow_event_triggers_plpgsql.sql # PL/pgSQL trigger function & batch cursor dispatch procedure
 │       ├── model_drift_telemetry_postgres.sql # Pure-SQL windowed Cox scoring & drift telemetry
 │       └── cohort_analysis.sql        # Monthly deployment survival cohorts & retention matrices
 ├── infrastructure/

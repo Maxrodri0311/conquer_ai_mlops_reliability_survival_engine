@@ -1,0 +1,10 @@
+# GitHub Linguist Configuration
+# Hide auxiliary execution/batch scripts from repository language statistics
+run_demo.bat linguist-vendored=true
+*.bat linguist-vendored=true
+*.cmd linguist-vendored=true
+*.ps1 linguist-vendored=true
+
+# Force explicit detection of core polyglot engineering layers
+analytics/queries/*.sql linguist-detectable=true
+infrastructure/*.tf linguist-detectable=true
