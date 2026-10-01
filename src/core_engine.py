@@ -84,10 +84,10 @@ class DomainAnalyticsEngine:
         ]
         subset = df[feature_cols].dropna().copy()
 
-        # Deterministic MLE subsampling for datasets > 2500 records to guarantee sub-200ms SLA
-        if len(subset) > 2500:
+        # Deterministic MLE subsampling for datasets > 1000 records to guarantee sub-250ms SLA
+        if len(subset) > 1000:
             rng = np.random.RandomState(42)
-            sub_idx = rng.choice(len(subset), size=2500, replace=False)
+            sub_idx = rng.choice(len(subset), size=1000, replace=False)
             cox_data = subset.iloc[sub_idx].copy()
         else:
             cox_data = subset.copy()
@@ -146,10 +146,10 @@ class DomainAnalyticsEngine:
             from lifelines import WeibullFitter
             wf = WeibullFitter()
             
-            # Deterministic MLE subsampling for datasets > 1500 records to guarantee sub-150ms SLA
-            if len(durations) > 1500:
+            # Deterministic MLE subsampling for datasets > 1000 records to guarantee sub-150ms SLA
+            if len(durations) > 1000:
                 rng = np.random.RandomState(42)
-                sub_idx = rng.choice(len(durations), size=1500, replace=False)
+                sub_idx = rng.choice(len(durations), size=1000, replace=False)
                 fit_durations = durations[sub_idx]
                 fit_events = events[sub_idx]
             else:
