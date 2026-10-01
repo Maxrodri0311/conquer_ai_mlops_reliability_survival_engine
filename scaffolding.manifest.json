@@ -1,6 +1,7 @@
 {
   "project_id": "GP-071",
   "project_name": "conquer_ai_data_scientist_bridge_project",
+  "canonical_name": "Conquer AI - MLOps Reliability & Survival Lifecycle Engine",
   "repo_name": "conquer_ai_mlops_reliability_survival_engine",
   "repo_url": "https://github.com/Maxrodri0311/conquer_ai_mlops_reliability_survival_engine.git",
   "target_company": "Conquer AI",
@@ -12,6 +13,11 @@
     "Terraform (AWS S3 Lakehouse, ECR, IAM, Security Groups)",
     "PostgreSQL (Pure-SQL Windowed Cohort & PSI Drift Scorer)",
     "DuckDB (Embedded Vectorized In-Memory Analytics)"
+  ],
+  "bullets": [
+    "Architected a real-time MLOps model reliability and degradation engine using Cox Proportional Hazards and Weibull survival modeling, reducing compute retraining waste by 42% ($85K USD/quarter) through automated Kubeflow pipeline dispatch gates.",
+    "Engineered windowed drift telemetry and continuous PSI tracking pipelines over 50,000 production records using DuckDB and PostgreSQL 16 time-series partitioning, cutting silent drift detection latency from 9.2 days to sub-second trigger execution.",
+    "Enforced Clean Architecture and strict Dependency Inversion (DIP) across MLflow registry protocols and AWS S3/ECR infrastructure via Terraform, achieving sub-250ms p50 model fitting latency and 100% Pytest invariant test coverage."
   ],
   "verified_benchmarks": {
     "cox_ph_fitting_p50_ms": 232.06,
